@@ -10,6 +10,7 @@
 6. [Versionamento](#6-versionamento)
 7. [Formato de Revisão](#7-formato-de-revisão)
 8. [Resolução de Conflitos](#8-resolução-de-conflitos)
+9. [Regras de Alteração de Documentos](#9-regras-de-alteração-de-documentos)
 
 ---
 
@@ -73,6 +74,7 @@ Inspirada em métodos ágeis:
 **Restrições**:
 - ❌ Não implementa código sem documentação prévia aprovada
 - ❌ Não ignora feedback de revisores sem aprovação do Árbitro
+- ❌ Não altera nenhum documento sem autorização prévia do Árbitro
 
 ---
 
@@ -190,6 +192,7 @@ Inspirada em métodos ágeis:
 3. Incorporar feedback aprovado pelo Árbitro
 4. Manter estrutura de pastas organizada
 5. Documentar decisões técnicas tomadas
+6. **Solicitar autorização antes de qualquer alteração em documentos**
 
 ### 4.3 Para IAs Revisoras
 
@@ -205,19 +208,19 @@ Inspirada em métodos ágeis:
 ```
 ai-docs-test/
 │
-├── README.md                    # Visão geral do projeto
-├── AI_COLLABORATION_GUIDE.md    # Este documento
+├── README.md                    # Visão geral do repositório
+├── AI_COLLABORATION_GUIDE.md    # Este documento (instruções e papéis)
+├── PROJECT_WORKSPACE.md         # Documento único de trabalho do projeto
 │
-├── docs/                        # Documentação do projeto
-│   ├── requisitos/              # Requisitos funcionais e não-funcionais
-│   ├── arquitetura/             # Diagramas e decisões arquiteturais
-│   ├── casos-de-uso/            # Descrição de casos de uso
-│   └── guias/                   # Tutoriais e guias operacionais
-│
-├── src/                         # Código-fonte (quando houver)
-│
-└── revisoes/                    # Histórico de revisões importantes (opcional)
+└── src/                         # Código-fonte (quando houver)
 ```
+
+### 5.1 Filosofia: Documentos Mínimos
+
+Para evitar dispersão de informação:
+- **Máximo 2 documentos principais** por projeto
+- **AI_COLLABORATION_GUIDE.md** - Instruções (raramente alterado)
+- **PROJECT_WORKSPACE.md** - Tudo sobre o projeto em um só lugar
 
 ---
 
@@ -315,11 +318,64 @@ Quando uma Revisora sugere algo que Claude discorda:
 
 ---
 
+## 9. Regras de Alteração de Documentos
+
+### 9.1 Regra Fundamental
+
+**Todos os documentos do repositório requerem autorização expressa do Árbitro antes de qualquer alteração.**
+
+Isso inclui:
+- Criar novos arquivos
+- Editar arquivos existentes
+- Deletar arquivos
+
+### 9.2 Fluxo Obrigatório
+
+```
+1. IA Autora identifica necessidade de alteração
+         │
+         ▼
+2. IA Autora informa ao Árbitro o que pretende alterar
+         │
+         ▼
+3. Árbitro avalia a proposta
+         │
+         ├── Aprova ──▶ IA executa a alteração
+         │
+         ├── Solicita ajustes ──▶ IA reformula proposta
+         │
+         └── Rejeita ──▶ Alteração não é feita
+```
+
+### 9.3 Formato da Solicitação
+
+Toda solicitação de alteração deve seguir este formato:
+
+```
+## Solicitação de Alteração #[número]
+
+**Documento**: [nome do arquivo]
+**Ação**: [criar / adicionar seção / editar seção / remover seção / deletar arquivo]
+**Resumo**: [descrição breve do que será feito]
+
+**Conteúdo proposto**:
+[prévia do que será escrito ou alterado]
+
+**Autoriza?**
+```
+
+### 9.4 Exceções
+
+Nenhuma. Esta regra não tem exceções.
+
+---
+
 ## Histórico do Documento
 
 | Versão | Data | Alteração |
 |--------|------|-----------|
 | 1.0 | 2024-12-28 | Criação inicial |
+| 1.1 | 2024-12-28 | Adiciona seção 9 (regras de alteração) e atualiza estrutura do repositório |
 
 ---
 
